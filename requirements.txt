@@ -1,4 +1,4 @@
-pip == 22.3.1
+pip == 23.1.2
 streamlit  == 1.17.0
 Pillow == 9.4.0
 pickleshare==0.7.5
@@ -6,5 +6,5 @@ catboost
 streamlit_extras
 streamlit_player
 xgboost
-pandas==1.5.3
+pandas==1.4.3
 
