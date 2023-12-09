@@ -37,8 +37,8 @@ model=pickle.load(open("model_saved","rb"))
 
 
 
-def predict_churn(Region, GDP per capita, Social support, Healthy life expectancy, Freedom to make life choices, Generosity, Perceptions of corruption):
-    input = np.array([[Region, GDP per capita, Social support, Healthy life expectancy, Freedom to make life choices, Generosity, Perceptions of corruption]])
+def predict_churn(Region, GDP_per_capita, Social_support, Healthy_life_expectancy, Freedom_to_make_life_choices, Generosity, Perceptions_of_corruption):
+    input = np.array([[Region, GDP_per_capita, Social_support, Healthy_life_expectancy, Freedom_to_make_life_choices, Generosity, Perceptions_of_corruption]])
     prediction = model.predict_proba(input)[:, 1]
     return float(prediction)    
 
@@ -56,12 +56,12 @@ def main():
     st.sidebar.text("Разработчик - Дубовцов А.А.")
 
     Region = st.selectbox('Region', ['Australia, New Zealand and Northern America', 'CSE Asia', 'Eastern Asia', 'Latin America and the Caribbean', 'Northern Africa', 'Northern and Western Europe', 'Southern Europe', 'Sub-Saharan Africa', 'Western Asia'])
-    GDP per capita = st.number_input('GDP per capita', min_value=0.00)
-    Social support = st.number_input('Social support', min_value=0.00)
-    Healthy life expectancy = st.number_input('Healthy life expectancy', min_value=0.00)
-    Freedom to make life choices = st.number_input('Freedom to make life choices', min_value=0.00)
+    GDP_per_capita = st.number_input('GDP per capita', min_value=0.00)
+    Social_support = st.number_input('Social support', min_value=0.00)
+    Healthy_life_expectancy = st.number_input('Healthy life expectancy', min_value=0.00)
+    Freedom_to_make_life_choices = st.number_input('Freedom to make life choices', min_value=0.00)
     Generosity = st.number_input('Generosity', min_value=0.00)
-    Perceptions of corruption = st.number_input('Perceptions of corruption', min_value=0.00)
+    Perceptions_of_corruption = st.number_input('Perceptions of corruption', min_value=0.00)
 
 
     churn_html = """  
@@ -84,7 +84,7 @@ def main():
 
     
     st.button('Сделать прогноз'):
-    output = predict_churn(Region, GDP per capita, Social support, Healthy life expectancy, Freedom to make life choices, Generosity, Perceptions of corruption)
+    output = predict_churn(Region, GDP_per_capita, Social_support, Healthy_life_expectancy, Freedom_to_make_life_choices, Generosity, Perceptions_of_corruption)
                 st.success('Уровень счастья составляет {:.2f} %'.format(output))
                 
 
