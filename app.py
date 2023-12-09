@@ -40,11 +40,11 @@ model=pickle.load(open('model_saved','rb'))
 
 def predict_churn(Region, GDP_per_capita, Social_support, Healthy_life_expectancy, Freedom_to_make_life_choices, Generosity, Perceptions_of_corruption):
     features = np.array([[Region, GDP_per_capita, Social_support, Healthy_life_expectancy, Freedom_to_make_life_choices, Generosity, Perceptions_of_corruption]])
-    features2 = pd.DataFrame(features)
-    features2.columns = ['Region','GDP per capita', 'Social support', 'Healthy life expectancy', 'Freedom to make life choices', 'Generosity', 'Perceptions of corruption']
-    categorical_columns = ['Region']
-    features2.loc[:, categorical_columns] = features2.loc[:, categorical_columns].astype('category')    
-    input = features2
+    #features2 = pd.DataFrame(features)
+    #features2.columns = ['Region','GDP per capita', 'Social support', 'Healthy life expectancy', 'Freedom to make life choices', 'Generosity', 'Perceptions of corruption']
+    #categorical_columns = ['Region']
+    #features2.loc[:, categorical_columns] = features2.loc[:, categorical_columns].astype('category')    
+    input = features
     prediction = model.predict(input)
     return float(prediction)    
 
@@ -89,28 +89,18 @@ def main():
             """
 
     
-    if st.button('Сделать прогноз'):
-         features = np.array([[Region, GDP_per_capita, Social_support, Healthy_life_expectancy, Freedom_to_make_life_choices, Generosity, Perceptions_of_corruption]])
-         features2 = pd.DataFrame(features)
-         print(features2.info())
-         features2.columns = ['Region','GDP per capita', 'Social support', 'Healthy life expectancy', 'Freedom to make life choices', 'Generosity', 'Perceptions of corruption']
-         categorical_columns = ['Region']
-         features2.loc[:, categorical_columns] = features2.loc[:, categorical_columns].astype('category')    
-         input = features2
-         prediction = model.predict(input)
-         st.success('Уровень счастья {}'.format(output))
-        
-        #output = predict_churn(Region, GDP_per_capita, Social_support, Healthy_life_expectancy, Freedom_to_make_life_choices, Generosity, Perceptions_of_corruption)
-        #st.success('Уровень счастья {}'.format(output))
-        #st.balloons()
+    if st.button('Сделать прогноз'):      
+        output = predict_churn(Region, GDP_per_capita, Social_support, Healthy_life_expectancy, Freedom_to_make_life_choices, Generosity, Perceptions_of_corruption)
+        st.success('Уровень счастья {}'.format(output))
+        st.balloons()
 
-        #if output >= 6:
-         #   st.markdown(churn_html, unsafe_allow_html= True)
-          #  print(features2.info())
+        if output >= 6:
+            st.markdown(churn_html, unsafe_allow_html= True)
+            print(features2.info())
 
-        #else:
-         #   st.markdown(no_churn_html, unsafe_allow_html= True)
-          #  print(features2.info())
+        else:
+            st.markdown(no_churn_html, unsafe_allow_html= True)
+            print(features2.info())
     
 
 
