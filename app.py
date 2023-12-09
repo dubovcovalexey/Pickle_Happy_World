@@ -61,7 +61,6 @@ def main():
     st.sidebar.image('prior.png', width=300)
     st.sidebar.subheader("Итоговая работа в рамках курса Diving into Darkness of Data Science")
     st.sidebar.text("Разработчик - Дубовцов А.А.")
-    print(features2.info())
 
     Region = st.selectbox('Region', ['Australia, New Zealand and Northern America', 'CSE Asia', 'Eastern Asia', 'Latin America and the Caribbean', 'Northern Africa', 'Northern and Western Europe', 'Southern Europe', 'Sub-Saharan Africa', 'Western Asia'])
     GDP_per_capita = float(st.number_input('GDP per capita', min_value=0.00))
@@ -98,10 +97,12 @@ def main():
 
         if output >= 6:
             st.markdown(churn_html, unsafe_allow_html= True)
+            print(features2.info())
 
         else:
             st.markdown(no_churn_html, unsafe_allow_html= True)
-                
+            print(features2.info())
+    
 
 
 if __name__=='__main__':
