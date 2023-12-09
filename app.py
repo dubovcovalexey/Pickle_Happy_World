@@ -90,7 +90,16 @@ def main():
 
     
     if st.button('Сделать прогноз'):
-        print(features2.info())
+         features = np.array([[Region, GDP_per_capita, Social_support, Healthy_life_expectancy, Freedom_to_make_life_choices, Generosity, Perceptions_of_corruption]])
+         features2 = pd.DataFrame(features)
+         print(features2.info())
+         features2.columns = ['Region','GDP per capita', 'Social support', 'Healthy life expectancy', 'Freedom to make life choices', 'Generosity', 'Perceptions of corruption']
+         categorical_columns = ['Region']
+         features2.loc[:, categorical_columns] = features2.loc[:, categorical_columns].astype('category')    
+         input = features2
+         prediction = model.predict(input)
+         st.success('Уровень счастья {}'.format(output))
+        
         #output = predict_churn(Region, GDP_per_capita, Social_support, Healthy_life_expectancy, Freedom_to_make_life_choices, Generosity, Perceptions_of_corruption)
         #st.success('Уровень счастья {}'.format(output))
         #st.balloons()
