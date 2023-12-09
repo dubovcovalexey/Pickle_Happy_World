@@ -43,6 +43,9 @@ def predict_churn(Region, GDP_per_capita, Social_support, Healthy_life_expectanc
     features2 = = pd.DataFrame(features)
     features2 = features.rename(columns={0: 'Region', 1: 'GDP per capita', 2: 'Social support', 3: 'Healthy life expectancy',
                                           4: 'Freedom to make life choices', 5: 'Generosity', 6: 'Perceptions of corruption'})
+    categorical_columns = ['Region']
+    features2.loc[:, categorical_columns] = features2.loc[:, categorical_columns].astype('category')
+    
     input = features2
     prediction = model.predict(input)
     return float(prediction)    
