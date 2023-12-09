@@ -63,12 +63,12 @@ def main():
     st.sidebar.text("Разработчик - Дубовцов А.А.")
 
     Region = st.selectbox('Region', ['Australia, New Zealand and Northern America', 'CSE Asia', 'Eastern Asia', 'Latin America and the Caribbean', 'Northern Africa', 'Northern and Western Europe', 'Southern Europe', 'Sub-Saharan Africa', 'Western Asia'])
-    GDP_per_capita = st.number_input('GDP per capita', min_value=0.00)
-    Social_support = st.number_input('Social support', min_value=0.00)
-    Healthy_life_expectancy = st.number_input('Healthy life expectancy', min_value=0.00)
-    Freedom_to_make_life_choices = st.number_input('Freedom to make life choices', min_value=0.00)
-    Generosity = st.number_input('Generosity', min_value=0.00)
-    Perceptions_of_corruption = st.number_input('Perceptions of corruption', min_value=0.00)
+    GDP_per_capita = float(st.number_input('GDP per capita', min_value=0.00))
+    Social_support = float(st.number_input('Social support', min_value=0.00))
+    Healthy_life_expectancy = float(st.number_input('Healthy life expectancy', min_value=0.00))
+    Freedom_to_make_life_choices = float(st.number_input('Freedom to make life choices', min_value=0.00))
+    Generosity = float(st.number_input('Generosity', min_value=0.00))
+    Perceptions_of_corruption = float(st.number_input('Perceptions of corruption', min_value=0.00))
 
 
     churn_html = """  
