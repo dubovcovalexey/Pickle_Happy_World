@@ -5,4 +5,4 @@ pickleshare==0.7.5
 catboost
 streamlit_extras
 streamlit_player
-xgboost==1.0.2
+xgboost==1.7.1
