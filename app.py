@@ -39,7 +39,8 @@ model=pickle.load(open('model_saved','rb'))
 
 
 def predict_churn(Region, GDP_per_capita, Social_support, Healthy_life_expectancy, Freedom_to_make_life_choices, Generosity, Perceptions_of_corruption):
-    features = np.array([[Region, GDP_per_capita, Social_support, Healthy_life_expectancy, Freedom_to_make_life_choices, Generosity, Perceptions_of_corruption]])
+    #features = np.array([[Region, GDP_per_capita, Social_support, Healthy_life_expectancy, Freedom_to_make_life_choices, Generosity, Perceptions_of_corruption]])
+    features= submission
     features2 = pd.DataFrame(features)
     features2.columns = ['Region', 'GDP per capita', 'Social support', 'Healthy life expectancy', 'Freedom to make life choices', 'Generosity', 'Perceptions of corruption']
     features2 = features2.apply(pd.to_numeric, errors="ignore")
@@ -62,15 +63,22 @@ def main():
     st.sidebar.subheader("Итоговая работа в рамках курса Diving into Darkness of Data Science")
     st.sidebar.text("Разработчик - Дубовцов А.А.")
 
-    Region = st.selectbox('Region', ['Australia, New Zealand and Northern America', 'CSE Asia', 'Eastern Asia', 'Latin America and the Caribbean', 'Northern Africa', 'Northern and Western Europe', 'Southern Europe', 'Sub-Saharan Africa', 'Western Asia'])
-    GDP_per_capita = float(st.number_input('GDP per capita', min_value=0.00))
-    Social_support = float(st.number_input('Social support', min_value=0.00))
-    Healthy_life_expectancy = float(st.number_input('Healthy life expectancy', min_value=0.00))
-    Freedom_to_make_life_choices = float(st.number_input('Freedom to make life choices', min_value=0.00))
-    Generosity = float(st.number_input('Generosity', min_value=0.00))
-    Perceptions_of_corruption = float(st.number_input('Perceptions of corruption', min_value=0.00))
+    #Region = st.selectbox('Region', ['Australia, New Zealand and Northern America', 'CSE Asia', 'Eastern Asia', 'Latin America and the Caribbean', 'Northern Africa', 'Northern and Western Europe', 'Southern Europe', 'Sub-Saharan Africa', 'Western Asia'])
+    #GDP_per_capita = float(st.number_input('GDP per capita', min_value=0.00))
+    #Social_support = float(st.number_input('Social support', min_value=0.00))
+    #Healthy_life_expectancy = float(st.number_input('Healthy life expectancy', min_value=0.00))
+    #Freedom_to_make_life_choices = float(st.number_input('Freedom to make life choices', min_value=0.00))
+    #Generosity = float(st.number_input('Generosity', min_value=0.00))
+    #Perceptions_of_corruption = float(st.number_input('Perceptions of corruption', min_value=0.00))
 
-
+    submission = np.array([[(input('Region')), 
+                        float(input('GDP per capita')), 
+                        float(input('Social support')), 
+                        float(input('Healthy life expectancy')), 
+                        float(input('Freedom to make life choices')), 
+                        float(input('Generosity')), 
+                        float(input('Perceptions of corruption'))]])
+    
     churn_html = """  
               <div style="background-color:#f44336;padding:20px >
                <h2 style="color:red;text-align:center;"> Клиент уходит. <br>Добавить клиента в CRM кампанию: потенциально потерянные клиенты.</h2>
