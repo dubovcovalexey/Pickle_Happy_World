@@ -47,7 +47,7 @@ def predict_churn(Region, GDP_per_capita, Social_support, Healthy_life_expectanc
     
     input = features2
     prediction = model.predict(input)
-    #return float(prediction)    
+    return float(prediction)    
 
 
 def main():
