@@ -39,9 +39,9 @@ model=pickle.load(open('model_saved','rb'))
 
 
 def predict_churn(GDP_per_capita, Social_support, Healthy_life_expectancy, Freedom_to_make_life_choices, Generosity, Perceptions_of_corruption,
-                 R1,R2,R3,R4,R5,R6,R7,R8,R9,R10):
+                 r1,r2,r3,r4,r5,r6,r7,r8,r9,r10):
     features = np.array([[GDP_per_capita, Social_support, Healthy_life_expectancy, Freedom_to_make_life_choices, Generosity, Perceptions_of_corruption,
-                 R1,R2,R3,R4,R5,R6,R7,R8,R9,R10]])
+                 r1,r2,r3,r4,r5,r6,r7,r8,r9,r10]])
     features = pd.DataFrame(features)
     features = features.apply(pd.to_numeric, errors="ignore")
     features.columns = ['GDP per capita', 'Social support', 'Healthy life expectancy', 'Freedom to make life choices', 'Generosity', 'Perceptions of corruption', 
@@ -128,7 +128,7 @@ def main():
     
     if st.button('Сделать прогноз'):      
         output = predict_churn(GDP_per_capita, Social_support, Healthy_life_expectancy, Freedom_to_make_life_choices, Generosity, Perceptions_of_corruption,
-                 R1,R2,R3,R4,R5,R6,R7,R8,R9,R10)
+                 r1,r2,r3,r4,r5,r6,r7,r8,r9,r10)
         st.balloons()
 
         if output >= 6:
