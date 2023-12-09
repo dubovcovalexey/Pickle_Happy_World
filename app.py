@@ -64,22 +64,47 @@ def main():
     st.sidebar.subheader("Итоговая работа в рамках курса Diving into Darkness of Data Science")
     st.sidebar.text("Разработчик - Дубовцов А.А.")
 
+
+    r1 = 'Australia, New Zealand and Northern America'
+    r2 ='CSE Asia'
+    r3 = 'Eastern Asia'
+    r4 ='Eastern Europe'
+    r5 = 'Latin America and the Caribbean'
+    r6 = 'Northern Africa'
+    r7 = 'Northern and Western Europe'
+    r8 = 'Southern Europe'
+    r9 = 'Sub-Saharan Africa'
+    r10 ='Western Asia'
+
+
     GDP_per_capita = float(st.number_input('GDP per capita', min_value=0.00))
     Social_support = float(st.number_input('Social support', min_value=0.00))
     Healthy_life_expectancy = float(st.number_input('Healthy life expectancy', min_value=0.00))
     Freedom_to_make_life_choices = float(st.number_input('Freedom to make life choices', min_value=0.00))
     Generosity = float(st.number_input('Generosity', min_value=0.00))
     Perceptions_of_corruption = float(st.number_input('Perceptions of corruption', min_value=0.00))
-    R1 = float(st.number_input('R1', min_value=0.00))
-    R2 = float(st.number_input('R2', min_value=0.00))
-    R3 = float(st.number_input('R3', min_value=0.00))
-    R4 = float(st.number_input('R4', min_value=0.00))
-    R5 = float(st.number_input('R5', min_value=0.00))
-    R6 = float(st.number_input('R6', min_value=0.00))
-    R7 = float(st.number_input('R7', min_value=0.00))
-    R8 = float(st.number_input('R8', min_value=0.00))
-    R9 = float(st.number_input('R9', min_value=0.00))
-    R10 = float(st.number_input('R10', min_value=0.00))
+    Region = st.selectbox('Region',  ['Australia, New Zealand and Northern America',	'CSE Asia',	'Eastern Asia',	'Eastern Europe',	'Latin America and the Caribbean',
+                          'Northern Africa', 'Northern and Western Europe',	'Southern Europe',	'Sub-Saharan Africa',	'Western Asia'])
+    if Region == 'Australia, New Zealand and Northern America':
+        'Australia, New Zealand and Northern America' = 1
+    elif Region == 'CSE Asia':
+        'CSE Asia' = 1
+    elif Region == 'Eastern Asia':
+        'Eastern Asia' = 1
+    elif Region == 'Eastern Europe':
+        'Eastern Europe' = 1
+    elif Region == 'Latin America and the Caribbean':
+        'Latin America and the Caribbean' = 1
+    elif Region == 'Northern Africa':
+        'Northern Africa' = 1
+    elif Region == 'Northern and Western Europe':
+        'Northern and Western Europe' = 1
+    elif Region == 'Southern Europe':
+        'Southern Europe' = 1
+    elif Region == 'Sub-Saharan Africa':
+        'Sub-Saharan Africa' = 1
+    elif Region == 'Western Asia':
+        'Western Asia' = 1
 
     
     churn_html = """  
