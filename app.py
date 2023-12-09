@@ -102,8 +102,8 @@ def main():
 
     
     if st.button('Сделать прогноз'):      
-        output = predict_churn(Region, GDP_per_capita, Social_support, Healthy_life_expectancy, Freedom_to_make_life_choices, Generosity, Perceptions_of_corruption)
-        st.success('Уровень счастья {}'.format(output))
+        output = predict_churn(GDP_per_capita, Social_support, Healthy_life_expectancy, Freedom_to_make_life_choices, Generosity, Perceptions_of_corruption,
+                 R1,R2,R3,R4,R5,R6,R7,R8,R9,R10)
         st.balloons()
 
         if output >= 6:
