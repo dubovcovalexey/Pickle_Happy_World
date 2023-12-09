@@ -91,17 +91,18 @@ def main():
 
     
     if st.button('Сделать прогноз'):
-        output = predict_churn(Region, GDP_per_capita, Social_support, Healthy_life_expectancy, Freedom_to_make_life_choices, Generosity, Perceptions_of_corruption)
-        st.success('Уровень счастья {}'.format(output))
-        st.balloons()
+        print(features2.info())
+        #output = predict_churn(Region, GDP_per_capita, Social_support, Healthy_life_expectancy, Freedom_to_make_life_choices, Generosity, Perceptions_of_corruption)
+        #st.success('Уровень счастья {}'.format(output))
+        #st.balloons()
 
-        if output >= 6:
-            st.markdown(churn_html, unsafe_allow_html= True)
-            print(features2.info())
+        #if output >= 6:
+         #   st.markdown(churn_html, unsafe_allow_html= True)
+          #  print(features2.info())
 
-        else:
-            st.markdown(no_churn_html, unsafe_allow_html= True)
-            print(features2.info())
+        #else:
+         #   st.markdown(no_churn_html, unsafe_allow_html= True)
+          #  print(features2.info())
     
 
 
