@@ -39,7 +39,7 @@ model=pickle.load(open("model_saved","rb"))
 
 def predict_churn(Region, GDP per capita, Social support, Healthy life expectancy, Freedom to make life choices, Generosity, Perceptions of corruption):
     input = np.array([[Region, GDP per capita, Social support, Healthy life expectancy, Freedom to make life choices, Generosity, Perceptions of corruption]])
-    prediction = model.predict_proba(input)[:, 1] * 100
+    prediction = model.predict_proba(input)[:, 1]
     return float(prediction)    
 
 
