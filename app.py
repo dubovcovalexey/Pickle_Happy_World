@@ -65,16 +65,16 @@ def main():
     st.sidebar.text("Разработчик - Дубовцов А.А.")
 
 
-    r1 = 'Australia, New Zealand and Northern America'
-    r2 ='CSE Asia'
-    r3 = 'Eastern Asia'
-    r4 ='Eastern Europe'
-    r5 = 'Latin America and the Caribbean'
-    r6 = 'Northern Africa'
-    r7 = 'Northern and Western Europe'
-    r8 = 'Southern Europe'
-    r9 = 'Sub-Saharan Africa'
-    r10 ='Western Asia'
+    r1 = 0
+    r2 = 0
+    r3 = 0
+    r4 = 0
+    r5 = 0
+    r6 = 0
+    r7 = 0
+    r8 = 0
+    r9 = 0
+    r10 = 0
 
 
     GDP_per_capita = float(st.number_input('GDP per capita', min_value=0.00))
@@ -86,25 +86,25 @@ def main():
     Region = st.selectbox('Region',  ['Australia, New Zealand and Northern America',	'CSE Asia',	'Eastern Asia',	'Eastern Europe',	'Latin America and the Caribbean',
                           'Northern Africa', 'Northern and Western Europe',	'Southern Europe',	'Sub-Saharan Africa',	'Western Asia'])
     if Region == 'Australia, New Zealand and Northern America':
-        'Australia, New Zealand and Northern America' = 1
+        r1 = 1
     elif Region == 'CSE Asia':
-        'CSE Asia' = 1
+        r2 = 1
     elif Region == 'Eastern Asia':
-        'Eastern Asia' = 1
+        r3' = 1
     elif Region == 'Eastern Europe':
-        'Eastern Europe' = 1
+        r4 = 1
     elif Region == 'Latin America and the Caribbean':
-        'Latin America and the Caribbean' = 1
+        r5 = 1
     elif Region == 'Northern Africa':
-        'Northern Africa' = 1
+        r6 = 1
     elif Region == 'Northern and Western Europe':
-        'Northern and Western Europe' = 1
+        r7= 1
     elif Region == 'Southern Europe':
-        'Southern Europe' = 1
+        r8= 1
     elif Region == 'Sub-Saharan Africa':
-        'Sub-Saharan Africa' = 1
+        r9 = 1
     elif Region == 'Western Asia':
-        'Western Asia' = 1
+        r10 = 1
 
     
     churn_html = """  
