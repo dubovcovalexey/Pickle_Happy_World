@@ -27,8 +27,8 @@ def set_png_as_page_bg(png_file):
 set_png_as_page_bg('6.jpg')
 
 
-classifier_name=['Сatboost']
-option = st.sidebar.selectbox('Модель прогнозирования оттока клиентов', classifier_name)
+classifier_name=['Xgboost']
+option = st.sidebar.selectbox('Модель', classifier_name)
 st.subheader(option)
 
 
@@ -37,11 +37,10 @@ model=pickle.load(open("model_saved","rb"))
 
 
 
-def predict_churn(CreditScore, Geography, Gender, Age, Tenure, Balance, NumOfProducts, HasCrCard, IsActiveMember, EstimatedSalary):
-    input = np.array([[CreditScore, Geography, Gender, Age, Tenure, Balance, NumOfProducts, HasCrCard, IsActiveMember, EstimatedSalary]])
+def predict_churn(Region, GDP per capita, Social support, Healthy life expectancy, Freedom to make life choices, Generosity, Perceptions of corruption):
+    input = np.array([[Region, GDP per capita, Social support, Healthy life expectancy, Freedom to make life choices, Generosity, Perceptions of corruption]])
     prediction = model.predict_proba(input)[:, 1] * 100
     return float(prediction)    
-
 
 
 def main():
@@ -56,47 +55,14 @@ def main():
     st.sidebar.subheader("Итоговая работа в рамках курса Diving into Darkness of Data Science")
     st.sidebar.text("Разработчик - Дубовцов А.А.")
 
-    CreditScore = st.slider('Скоринговый балл', 0, 400)
-    Geography = st.selectbox('География/регион', ['Минск', 'Брест', 'Могилев'])
-    #Gender = st.selectbox('Пол',  ['1', '2'])
-    Gen = st.selectbox('Пол',  ['Женский', 'Мужской'])
-    if Gen == 'Женский':
-        Gender = 0
-    else:
-        Gender = 1
+    Region = st.selectbox('Region', ['Australia, New Zealand and Northern America', 'CSE Asia', 'Eastern Asia', 'Latin America and the Caribbean', 'Northern Africa', 'Northern and Western Europe', 'Southern Europe', 'Sub-Saharan Africa', 'Western Asia'])
+    GDP per capita = st.number_input('GDP per capita', min_value=0.00)
+    Social support = st.number_input('Social support', min_value=0.00)
+    Healthy life expectancy = st.number_input('Healthy life expectancy', min_value=0.00)
+    Freedom to make life choices = st.number_input('Freedom to make life choices', min_value=0.00)
+    Generosity = st.number_input('Generosity', min_value=0.00)
+    Perceptions of corruption = st.number_input('Perceptions of corruption', min_value=0.00)
 
-    Age = st.number_input('Возраст', min_value=18, max_value=100, step=1)
-    #st.slider("Возраст", 10, 100)
-    Tenure = st.number_input('Длительность обслуживания в банке:', min_value=1, max_value=35, step = 1)
-    Bal = st.number_input('Баланс', min_value=0.00)
-    if Bal < 500:
-        Balance = 500
-    elif Bal >= 500 and Bal < 6000:
-        Balance = Bal
-    else:
-        Balance = 6000
-    Num = st.selectbox('Количество продуктов', ['1', '2 и более'])
-    if Num == '1':
-        NumOfProducts = 1
-    else:
-        NumOfProducts = 2
-    HasCr = st.selectbox("Есть кредитная БПК ?", ['Нет', 'Да'])
-    if HasCr == 'Нет':
-        HasCrCard = 0
-    else:
-        HasCrCard = 1
-    IsActive = st.selectbox("Активный клиент ?", ['Нет', 'Да'])
-    if IsActive == 'Нет':
-        IsActiveMember = 0
-    else:
-        IsActiveMember = 1
-    Salary = st.number_input('Зарплата', min_value=0.00)
-    if Salary < 300:
-        EstimatedSalary = 300
-    elif Salary >= 300 and Salary < 6000:
-        EstimatedSalary = Salary
-    else:
-        EstimatedSalary = 6000
 
     churn_html = """  
               <div style="background-color:#f44336;padding:20px >
@@ -117,30 +83,10 @@ def main():
             """
 
     
-    if Age - Tenure < 17:
-        st.error('Некорректный возраст клиента или длительность обслуживания в банке')
-    
-    else:
-        if st.button('Сделать прогноз'):
-              
-            if Balance < 1000 and EstimatedSalary < 500 and IsActiveMember == 0 and NumOfProducts == 1:
-                st.success('Вероятность оттока составляет более 90%.')
-                st.markdown(churn_html, unsafe_allow_html= True)
-
-            elif Balance > 2000 and EstimatedSalary > 2000 and CreditScore > 250 and predict_churn(CreditScore, Geography, Gender, Age, Tenure, Balance, NumOfProducts, HasCrCard, IsActiveMember, EstimatedSalary)  > 40:
-                st.success('Вероятность оттока составляет менее 40 %.')
-                st.markdown(no_churn_html, unsafe_allow_html= True)
+    st.button('Сделать прогноз'):
+    output = predict_churn(Region, GDP per capita, Social support, Healthy life expectancy, Freedom to make life choices, Generosity, Perceptions of corruption)
+                st.success('Уровень счастья составляет {:.2f} %'.format(output))
                 
-            else:
-                output = predict_churn(CreditScore, Geography, Gender, Age, Tenure, Balance, NumOfProducts, HasCrCard, IsActiveMember, EstimatedSalary)
-                st.success('Вероятность оттока составляет {:.2f} %'.format(output))
-                if output >= 85:
-                        st.markdown(churn_html, unsafe_allow_html= True)
-                elif output >= 40:
-                    st.markdown(mb_churn_html, unsafe_allow_html= True)
-                else:
-                    st.markdown(no_churn_html, unsafe_allow_html= True)
-                    st.balloons()
 
 
 if __name__=='__main__':
