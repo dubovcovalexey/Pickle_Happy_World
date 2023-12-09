@@ -96,12 +96,9 @@ def main():
 
         if output >= 6:
             st.markdown(churn_html, unsafe_allow_html= True)
-            print(features2.info())
 
         else:
-            st.markdown(no_churn_html, unsafe_allow_html= True)
-            print(features2.info())
-    
+            st.markdown(no_churn_html, unsafe_allow_html= True)    
 
 
 if __name__=='__main__':
