@@ -6,5 +6,5 @@ catboost
 streamlit_extras
 streamlit_player
 xgboost
-pandas==1.1.1
+pandas==1.5.3
 
