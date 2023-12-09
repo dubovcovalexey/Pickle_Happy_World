@@ -63,21 +63,13 @@ def main():
     st.sidebar.subheader("Итоговая работа в рамках курса Diving into Darkness of Data Science")
     st.sidebar.text("Разработчик - Дубовцов А.А.")
 
-    #Region = st.selectbox('Region', ['Australia, New Zealand and Northern America', 'CSE Asia', 'Eastern Asia', 'Latin America and the Caribbean', 'Northern Africa', 'Northern and Western Europe', 'Southern Europe', 'Sub-Saharan Africa', 'Western Asia'])
-    #GDP_per_capita = float(st.number_input('GDP per capita', min_value=0.00))
-    #Social_support = float(st.number_input('Social support', min_value=0.00))
-    #Healthy_life_expectancy = float(st.number_input('Healthy life expectancy', min_value=0.00))
-    #Freedom_to_make_life_choices = float(st.number_input('Freedom to make life choices', min_value=0.00))
-    #Generosity = float(st.number_input('Generosity', min_value=0.00))
-    #Perceptions_of_corruption = float(st.number_input('Perceptions of corruption', min_value=0.00))
-
-    submission = np.array([[(input('Region')), 
-                        float(input('GDP per capita')), 
-                        float(input('Social support')), 
-                        float(input('Healthy life expectancy')), 
-                        float(input('Freedom to make life choices')), 
-                        float(input('Generosity')), 
-                        float(input('Perceptions of corruption'))]])
+    Region = st.selectbox('Region', ['Australia, New Zealand and Northern America', 'CSE Asia', 'Eastern Asia', 'Latin America and the Caribbean', 'Northern Africa', 'Northern and Western Europe', 'Southern Europe', 'Sub-Saharan Africa', 'Western Asia'])
+    GDP_per_capita = float(st.number_input('GDP per capita', min_value=0.00))
+    Social_support = float(st.number_input('Social support', min_value=0.00))
+    Healthy_life_expectancy = float(st.number_input('Healthy life expectancy', min_value=0.00))
+    Freedom_to_make_life_choices = float(st.number_input('Freedom to make life choices', min_value=0.00))
+    Generosity = float(st.number_input('Generosity', min_value=0.00))
+    Perceptions_of_corruption = float(st.number_input('Perceptions of corruption', min_value=0.00))
     
     churn_html = """  
               <div style="background-color:#f44336;padding:20px >
