@@ -108,9 +108,11 @@ def main():
 
         if output >= 6:
             st.markdown(churn_html, unsafe_allow_html= True)
+            st.success('уровень счастья {:.2f}'.format(output))
 
         else:
             st.markdown(no_churn_html, unsafe_allow_html= True)    
+            st.success('уровень счастья {:.2f}'.format(output))
 
 
 if __name__=='__main__':
