@@ -3,6 +3,7 @@
 import streamlit as st
 import pickle
 import numpy as np
+import pandas as pd
 
 import base64
 @st.cache(allow_output_mutation=True)
@@ -38,8 +39,12 @@ model=pickle.load(open('model_saved','rb'))
 
 
 def predict_churn(Region, GDP_per_capita, Social_support, Healthy_life_expectancy, Freedom_to_make_life_choices, Generosity, Perceptions_of_corruption):
-    input = np.array([[Region, GDP_per_capita, Social_support, Healthy_life_expectancy, Freedom_to_make_life_choices, Generosity, Perceptions_of_corruption]])
-    prediction = model.predict(input)[:, 1]
+    features = np.array([[Region, GDP_per_capita, Social_support, Healthy_life_expectancy, Freedom_to_make_life_choices, Generosity, Perceptions_of_corruption]])
+    features = = pd.DataFrame(features)
+    features = features.rename(columns={0: 'Region', 1: 'GDP per capita', 2: 'Social support', 3: 'Healthy life expectancy',
+                                          4: 'Freedom to make life choices', 5: 'Generosity', 6: 'Perceptions of corruption'})
+    input = features
+    prediction = model.predict(input)
     return float(prediction)    
 
 
