@@ -90,7 +90,7 @@ def main():
     elif Region == 'CSE Asia':
         r2 = 1
     elif Region == 'Eastern Asia':
-        r3' = 1
+        r3 = 1
     elif Region == 'Eastern Europe':
         r4 = 1
     elif Region == 'Latin America and the Caribbean':
