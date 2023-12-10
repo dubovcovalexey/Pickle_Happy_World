@@ -120,7 +120,7 @@ def main():
             """
     
     No_happy_html = """  
-              <div style="background-color:#ffbdbd;padding:40px >
+              <div style="background-color:#ffbdbd;padding:20px >
               <h2 style="color:red ;text-align:center;"> This is not a happy place <br>You can see indicators that affect the level of happiness in your region.</h2>
               </div>
             """
@@ -129,17 +129,19 @@ def main():
     if st.button('Сделать прогноз'):      
         output = predict_churn(GDP_per_capita, Social_support, Healthy_life_expectancy, Freedom_to_make_life_choices, Generosity, Perceptions_of_corruption,
                  r1,r2,r3,r4,r5,r6,r7,r8,r9,r10)
-        st.balloons()
+       
 
         if output >= 7:
+            st.success('Happiness score {:.2f}'.format(output))
             st.markdown(Happy_html, unsafe_allow_html= True)
-            st.success('Happiness score {:.2f}'.format(output))
+            st.balloons()
         elif output < 5.5:
+            st.success('Happiness score {:.2f}'.format(output))
             st.markdown(No_happy_html, unsafe_allow_html= True)
-            st.success('Happiness score {:.2f}'.format(output))
+            st.balloons()
         else:
+            st.error('Happiness score {:.2f}'.format(output))
             st.markdown(Normal_html, unsafe_allow_html= True)    
-            st.success('Happiness score {:.2f}'.format(output))
 
 
 if __name__=='__main__':
