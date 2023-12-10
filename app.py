@@ -70,7 +70,7 @@ def main():
     if avg == 'Healthy life expectancy':
         st.image('3.png')
     if avg == 'Freedom to make life choices':
-        st.image('4.jpg')
+        st.image('4.png')
     if avg == 'Generosity':
         st.image('5.png')
     if avg == 'Perceptions of corruption':
