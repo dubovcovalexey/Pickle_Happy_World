@@ -78,7 +78,7 @@ def main():
 
     st.sidebar.image('prior.png', width=300)
     st.sidebar.subheader("A model for predicting the level of happiness.")
-    st.sidebar.subheader("You must enter odds data. If you do not know the coefficient, you can look at the average levels of the indicator for the region and set a similar value.")
+    st.sidebar.subheader("You must enter coefficient data. If you do not know the coefficient, you can look at the average levels of the indicator for the region and set a similar value.")
     st.sidebar.text("Developer - Aleksey Dubovcov")
 
 
