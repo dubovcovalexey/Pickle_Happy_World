@@ -60,8 +60,7 @@ def main():
     </div>
     """
     st.markdown(html_temp, unsafe_allow_html=True)
-    st.title('Average coefficients by region')
-    avg = st.selectbox('If you do not know the value of the coefficient, you can indicate the average value for the region.',
+    avg = st.selectbox('Average coefficients by region: if you do not know the value of the coefficient, you can indicate the average value for the region.',
                                ['Select coefficient', 'GDP per capita', 'Social support', 'Healthy life expectancy', 'Freedom to make life choices','Generosity', 'Perceptions of corruption'])
     if avg == 'GDP per capita':
         st.image('1.png')
