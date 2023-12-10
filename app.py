@@ -60,6 +60,24 @@ def main():
     </div>
     """
     st.markdown(html_temp, unsafe_allow_html=True)
+
+    st.sidebar.title('Average coefficients by region')
+    avg = st.sidebar.selectbox("If you do not know the value of the coefficient, you can indicate the average value for the region."
+                               ['Select coefficient', 'Freedom to make life choices',	'GDP per capita',	'Generosity',	'Happiness score',	'Healthy life expectancy',	'Perceptions of corruption', 'Social support'])
+    if avg == 'GDP per capita':
+        st.sidebar.image('1.png')
+    if avg == 'Social support':
+        st.sidebar.image('2.png')
+    if avg == 'Healthy life expectancy':
+        st.sidebar.image('3.png')
+    if avg == 'Freedom to make life choices':
+        st.sidebar.image('4.jpg')
+    if avg == 'Generosity':
+        st.sidebar.image('5.png')
+    if avg == 'Perceptions of corruption':
+        st.sidebar.image('6.png')
+
+
     st.sidebar.image('prior.png', width=300)
     st.sidebar.subheader("A model for predicting the level of happiness.")
     st.sidebar.subheader("You must enter odds data. If you do not know the coefficient, you can look at the average levels of the indicator for the region and set a similar value.")
