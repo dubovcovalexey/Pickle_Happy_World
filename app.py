@@ -146,7 +146,7 @@ def main():
         st.error('Enter values for each coefficient')
     
     else: 
-        st.button('Predict'):      
+        if st.button('Predict'):      
             output = predict_churn(GDP_per_capita, Social_support, Healthy_life_expectancy, Freedom_to_make_life_choices, Generosity, Perceptions_of_corruption,
                  r1,r2,r3,r4,r5,r6,r7,r8,r9,r10)
        
