@@ -62,7 +62,7 @@ def main():
     st.markdown(html_temp, unsafe_allow_html=True)
     st.title('Average coefficients by region')
     avg = st.selectbox('If you do not know the value of the coefficient, you can indicate the average value for the region.',
-                               ['Select coefficient', 'Freedom to make life choices',	'GDP per capita',	'Generosity',	'Healthy life expectancy',	'Perceptions of corruption', 'Social support'])
+                               ['Select coefficient', 'GDP per capita', 'Social support', 'Healthy life expectancy', 'Freedom to make life choices','Generosity', 'Perceptions of corruption'])
     if avg == 'GDP per capita':
         st.image('1.png')
     if avg == 'Social support':
@@ -154,10 +154,10 @@ def main():
             st.markdown(Happy_html, unsafe_allow_html= True)
             st.balloons()
         elif output < 5.5:
-            st.success('Happiness score {:.2f}'.format(output))
+            st.error('Happiness score {:.2f}'.format(output))
             st.markdown(No_happy_html, unsafe_allow_html= True)
         else:
-            st.error('Happiness score {:.2f}'.format(output))
+            st.success('Happiness score {:.2f}'.format(output))
             st.markdown(Normal_html, unsafe_allow_html= True)
             st.balloons()
 
