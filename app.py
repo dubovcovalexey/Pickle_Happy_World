@@ -141,7 +141,9 @@ def main():
               <h2 style="color:red ;text-align:center;"> This is not a happy place <br>You can see indicators that affect the level of happiness in your region.</h2>
               </div>
             """
-
+    
+    
+    
     if GDP_per_capita == 0 or Social_support == 0 or Healthy_life_expectancy  == 0 or  Freedom_to_make_life_choices  == 0 or  Generosity  == 0 or  Perceptions_of_corruption == 0:
         st.error('Enter values for each coefficient')
     
@@ -162,6 +164,26 @@ def main():
                 st.markdown(Normal_html, unsafe_allow_html= True)
                 st.balloons()
 
+            if Region == 'Australia, New Zealand and Northern America':
+                st.image('1.png')
+            elif Region == 'CSE Asia':
+                st.image('2.png')
+            elif Region == 'Eastern Asia':
+                st.image('3.png')
+            elif Region == 'Eastern Europe':
+                st.image('4.png')
+            elif Region == 'Latin America and the Caribbean':
+                st.image('5.png')
+            elif Region == 'Northern Africa':
+                st.image('6.png')
+            elif Region == 'Northern and Western Europe':
+                st.image('7.png')
+            elif Region == ''Southern Europe':
+                st.image('8.png')
+            elif Region == 'Sub-Saharan Africa':
+                st.image('9.png')
+            elif Region =='Western Asia':
+                st.image('10.png')
 
 if __name__=='__main__':
     main()
