@@ -1,1 +1,1 @@
-# Churn prediction model for bank.
+# prediction model.
