@@ -108,19 +108,19 @@ def main():
 
     
     Happy_html = """  
-              <div style="background-color:#f44336;padding:20px >
+              <div style="background-color:#bcf799;padding:20px >
                <h2 style="color:green;text-align:center;"> This is a happy place. <br>You can see indicators that affect the level of happiness in your region.</h2>
                </div>
             """
     
     Normal_html = """  
-              <div style="background-color:#94be8d;padding:20px >
+              <div style="background-color: #aefcf5;padding:20px >
                <h2 style="color:green;text-align:center;"> The level of happiness in this place is normal. <br>You can see indicators that affect the level of happiness in your region.</h2>
                </div>
             """
     
     No_happy_html = """  
-              <div style="background-color:#c9c7c7;padding:20px >
+              <div style="background-color:#ffbdbd;padding:40px >
               <h2 style="color:red ;text-align:center;"> This is not a happy place <br>You can see indicators that affect the level of happiness in your region.</h2>
               </div>
             """
