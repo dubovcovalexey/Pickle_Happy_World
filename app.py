@@ -165,20 +165,20 @@ def main():
                 st.balloons()
 
             if Region == 'Australia, New Zealand and Northern America':
-                st.image('1.png')
+                st.image('1.1.png')
             elif Region == 'CSE Asia':
-                st.image('2.png')
+                st.image('2.1.png')
             elif Region == 'Eastern Asia':
-                st.image('3.png')
+                st.image('3.1.png')
             elif Region == 'Eastern Europe':
-                st.image('4.png')
+                st.image('4.1.png')
             elif Region == 'Latin America and the Caribbean':
-                st.image('5.png')
+                st.image('5.1.png')
             elif Region == 'Northern Africa':
-                st.image('6.png')
+                st.image('6.1.png')
             elif Region == 'Northern and Western Europe':
                 st.image('7.png')
-            elif Region == ''Southern Europe':
+            elif Region == 'Southern Europe':
                 st.image('8.png')
             elif Region == 'Sub-Saharan Africa':
                 st.image('9.png')
