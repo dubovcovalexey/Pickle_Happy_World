@@ -61,7 +61,8 @@ def main():
     """
     st.markdown(html_temp, unsafe_allow_html=True)
     st.sidebar.image('prior.png', width=300)
-    st.sidebar.subheader("A model for predicting the level of happiness. You must enter odds data. If you do not know the coefficient data, then leave 0 - it will be filled with the average value for the region you selected.")
+    st.sidebar.subheader("A model for predicting the level of happiness. <br>You must enter odds data. <br>If you do not know the coefficient data, you can look at the average levels of the indicator for the region and set a similar value.
+")
     st.sidebar.text("Developer - Aleksey Dubovcov")
 
 
