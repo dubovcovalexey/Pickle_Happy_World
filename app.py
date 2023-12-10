@@ -25,7 +25,7 @@ def set_png_as_page_bg(png_file):
 
     st.markdown(page_bg_img, unsafe_allow_html=True)
     return
-set_png_as_page_bg('6.jpg')
+set_png_as_page_bg('phone.jpg')
 
 
 classifier_name=['Xgboost']
