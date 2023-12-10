@@ -56,7 +56,7 @@ def main():
     st.title("Happiness level")
     html_temp = """
     <div style="background-color:white ;padding:5px">
-    <h2 style="color:black;text-align:center;">Заполни форму</h2>
+    <h2 style="color:black;text-align:center;">Fill out this form</h2>
     </div>
     """
     st.markdown(html_temp, unsafe_allow_html=True)
