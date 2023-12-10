@@ -147,21 +147,20 @@ def main():
     
     else: 
         if st.button('Predict'):      
-            output = predict_churn(GDP_per_capita, Social_support, Healthy_life_expectancy, Freedom_to_make_life_choices, Generosity, Perceptions_of_corruption,
-                 r1,r2,r3,r4,r5,r6,r7,r8,r9,r10)
+            output = predict_churn(GDP_per_capita, Social_support, Healthy_life_expectancy, Freedom_to_make_life_choices, Generosity, Perceptions_of_corruption,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10)
        
 
-                if output >= 7:
-                    st.success('Happiness score {:.2f}'.format(output))
-                    st.markdown(Happy_html, unsafe_allow_html= True)
-                    st.balloons()
-                elif output < 5.5:
-                    st.error('Happiness score {:.2f}'.format(output))
-                    st.markdown(No_happy_html, unsafe_allow_html= True)
-                else:
-                    st.success('Happiness score {:.2f}'.format(output))
-                    st.markdown(Normal_html, unsafe_allow_html= True)
-                    st.balloons()
+            if output >= 7:
+                st.success('Happiness score {:.2f}'.format(output))
+                st.markdown(Happy_html, unsafe_allow_html= True)
+                st.balloons()
+            elif output < 5.5:
+                st.error('Happiness score {:.2f}'.format(output))
+                st.markdown(No_happy_html, unsafe_allow_html= True)
+            else:
+                st.success('Happiness score {:.2f}'.format(output))
+                st.markdown(Normal_html, unsafe_allow_html= True)
+                st.balloons()
 
 
 if __name__=='__main__':
