@@ -53,7 +53,7 @@ def predict_churn(GDP_per_capita, Social_support, Healthy_life_expectancy, Freed
 
 
 def main():
-    st.title("Прогноз оттока клиентов")
+    st.title("Happiness level")
     html_temp = """
     <div style="background-color:white ;padding:5px">
     <h2 style="color:black;text-align:center;">Заполни форму</h2>
@@ -107,21 +107,21 @@ def main():
         r10 = 1
 
     
-    churn_html = """  
+    Happy_html = """  
               <div style="background-color:#f44336;padding:20px >
-               <h2 style="color:red;text-align:center;"> Клиент уходит. <br>Добавить клиента в CRM кампанию: потенциально потерянные клиенты.</h2>
+               <h2 style="color:green;text-align:center;"> This is a happy place. <br>You can see indicators that affect the level of happiness in your region.</h2>
                </div>
             """
     
-    no_churn_html = """  
+    Normal_html = """  
               <div style="background-color:#94be8d;padding:20px >
-               <h2 style="color:green ;text-align:center;"> Клиент остаётся в банке.</h2>
+               <h2 style="color:green;text-align:center;"> The level of happiness in this place is normal. <br>You can see indicators that affect the level of happiness in your region.</h2>
                </div>
             """
     
-    mb_churn_html = """  
+    No_happy_html = """  
               <div style="background-color:#c9c7c7;padding:20px >
-              <h2 style="color:blue ;text-align:center;"> Клиент может уйти из банка. <br>Добавить клиента в CRM кампанию: удержание клиентов.</h2>
+              <h2 style="color:red ;text-align:center;"> This is not a happy place <br>You can see indicators that affect the level of happiness in your region.</h2>
               </div>
             """
 
@@ -131,13 +131,15 @@ def main():
                  r1,r2,r3,r4,r5,r6,r7,r8,r9,r10)
         st.balloons()
 
-        if output >= 6:
-            st.markdown(churn_html, unsafe_allow_html= True)
-            st.success('уровень счастья {:.2f}'.format(output))
-
+        if output >= 7:
+            st.markdown(Happy_html, unsafe_allow_html= True)
+            st.success('Happiness score {:.2f}'.format(output))
+        elif output < 5.5:
+            st.markdown(No_happy_html, unsafe_allow_html= True)
+            st.success('Happiness score {:.2f}'.format(output))
         else:
-            st.markdown(no_churn_html, unsafe_allow_html= True)    
-            st.success('уровень счастья {:.2f}'.format(output))
+            st.markdown(Normal_html, unsafe_allow_html= True)    
+            st.success('Happiness score {:.2f}'.format(output))
 
 
 if __name__=='__main__':
