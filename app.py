@@ -61,8 +61,8 @@ def main():
     """
     st.markdown(html_temp, unsafe_allow_html=True)
     st.sidebar.image('prior.png', width=300)
-    st.sidebar.subheader("Итоговая работа в рамках курса Diving into Darkness of Data Science")
-    st.sidebar.text("Разработчик - Дубовцов А.А.")
+    st.sidebar.subheader("A model for predicting the level of happiness. You must enter odds data. If you do not know the coefficient data, then leave 0 - it will be filled with the average value for the region you selected.")
+    st.sidebar.text("Developer - Aleksey Dubovcov")
 
 
     r1 = 0
@@ -138,10 +138,10 @@ def main():
         elif output < 5.5:
             st.success('Happiness score {:.2f}'.format(output))
             st.markdown(No_happy_html, unsafe_allow_html= True)
-            st.balloons()
         else:
             st.error('Happiness score {:.2f}'.format(output))
-            st.markdown(Normal_html, unsafe_allow_html= True)    
+            st.markdown(Normal_html, unsafe_allow_html= True)
+            st.balloons()
 
 
 if __name__=='__main__':
